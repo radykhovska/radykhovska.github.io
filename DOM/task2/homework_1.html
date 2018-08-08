@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Catalog</title>
+    <style>
+    body {
+        margin: 20px 40px;
+    }
+
+    .folder {
+        padding-left: 25px;
+        margin-bottom: 5px;
+        background: url(./folder.png) no-repeat top left;
+        background-size: 20px;
+        max-width: 300px;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+
+    .folder:hover,
+    .folder-holder:hover {
+        cursor: pointer;
+    }
+
+    .folder-holder .folder-holder {
+        margin-left: 25px;
+    }
+
+    .target {
+        background-color: #e6e6e6;
+    }
+
+    .folder-holder .folder-holder {
+        display: none;
+    }
+
+    .opened>.folder-holder {
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="folder-holder opened">
+        <div class="folder">asteria</div>
+        <div class="folder-holder">
+            <div class="folder">asteria.com</div>
+        </div>
+        <div class="folder-holder">
+            <div class="folder">asteria.com-disign</div>
+            <div class="folder-holder">
+                <div class="folder">js_scholl</div>
+            </div>
+            <div class="folder-holder">
+                <div class="folder">learn</div>
+            </div>
+        </div>
+    </div>
+    <div class="folder-holder">
+        <div class="folder">bot_developper</div>
+    </div>
+    <div class="folder-holder">
+        <div class="folder">ghostpdl</div>
+    </div>
+    <div class="folder-holder">
+        <div class="folder">js_scholl</div>
+    </div>
+    <div class="folder-holder">
+        <div class="folder">learn</div>
+    </div>
+    <div class="folder-holder">
+        <div class="folder">ml</div>
+    </div>
+    <div class="folder-holder">
+        <div class="folder">opensource</div>
+    </div>
+    <div class="folder-holder">
+        <div class="folder">test</div>
+    </div>
+    <div class="folder-holder">
+        <div class="folder">tests</div>
+    </div>
+    <div class="folder-holder">
+        <div class="folder">trueedit</div>
+    </div>
+    <script>
+    const folders = document.getElementsByClassName('folder'),
+        foldersHolder = document.getElementsByClassName('folder-holder');
+    for (let i = 0; i < foldersHolder.length; i++) {
+        foldersHolder[i].addEventListener('dblclick', function(e) {
+            e.stopPropagation();
+            e.currentTarget.classList.toggle('opened');
+        })
+    }
+    for (let i = 0; i < folders.length; i++) {
+        folders[i].addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (e.shiftKey) {
+                e.currentTarget.classList.toggle('target');
+            } else {
+                for (let j = 0; j < folders.length; j++) {
+                    if (folders[j] !== e.currentTarget) {
+                    	folders[j].classList.remove('target');
+                    }
+                }
+                e.currentTarget.classList.toggle('target');
+            }
+        })
+    }
+    </script>
+</body>
+
+</html>
