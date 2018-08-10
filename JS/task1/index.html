@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>homework_2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var name = prompt('Hi! What i your name?');
+		var surname = prompt('What i your surname?');
+		var middlename = prompt('What i your middle name?');
+		var birthDay = prompt('When is your birthday?');
+		var address = prompt('What is your address?');
+		var defaultAlert = '-/-' ;
+
+ 		document.write('<hr>');
+ 		document.write('<h1>');
+		!!name ? document.write(name + ' ') : document.write(defaultAlert);
+		!!surname ? document.write(surname + ' ') : document.write(defaultAlert);
+		!!middlename ? document.write(middlename + ' ') : document.write(defaultAlert);
+ 		document.write('</h1>');
+ 		document.write('<hr>');
+ 		document.write('<b>Дата рождения: </b>');
+		!!birthDay ? document.write(birthDay) : document.write(defaultAlert);
+ 		document.write('<br>');
+ 		document.write('<br>');
+ 		document.write('<b>Место жительства: </b>');
+		!!address ? document.write(address) : document.write(defaultAlert);
+
+	</script>
+</body>
+</html>
